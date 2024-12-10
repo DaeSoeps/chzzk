@@ -101,7 +101,8 @@ export class ChzzkChat {
         }
 
         if(!this.options.chatChannelId){
-            return this.emit('NoChatChannelId', await this.client.live.status(this.options.channelId));
+            this.emit('NoChatChannelId', await this.client.live.status(this.options.channelId));
+            throw new Error('chatChannelId is null. Please ensure it is set before connecting.');
         }
 
         const serverId = Math.abs(
