@@ -100,6 +100,10 @@ export class ChzzkChat {
             ver: "2"
         }
 
+        if(!this.options.chatChannelId){
+            return this.emit('NoChatChannelId', yield this.client.live.status(this.options.channelId));
+        }
+
         const serverId = Math.abs(
             this.options.chatChannelId.split("")
                 .map(c => c.charCodeAt(0))
