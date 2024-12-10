@@ -101,7 +101,7 @@ export class ChzzkChat {
         }
 
         if(!this.options.chatChannelId){
-            return this.emit('NoChatChannelId', yield this.client.live.status(this.options.channelId));
+            return this.emit('NoChatChannelId', await this.client.live.status(this.options.channelId));
         }
 
         const serverId = Math.abs(
